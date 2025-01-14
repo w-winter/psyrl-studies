@@ -1,16 +1,16 @@
-# IRL Psychedelic Studies Tracker
+# Psychedelic Studies Tracker
 
-Automated tracker for new studies posted on the Atlas of Psychedelic Research.
+Automated tracker for new IRL psychedelic studies posted on the Atlas of Psychedelic Research.
 
 ## Setup
 
 1. Create a new GitHub repository and clone it
 2. Copy these files into the repository
 3. Set up the Discord webhook:
-   - Create a channel named exactly `#psyrl-studies` in your Discord server
+   - Create a channel named `#psyrl-studies` in your Discord server
    - Go to Server Settings > Integrations > Create Webhook
    - Name it "PsyRL Studies Bot"
-   - IMPORTANT: Set the channel to `#psyrl-studies` - the webhook must post to this specific channel
+   - Set the channel to `#psyrl-studies` - the webhook must post to this specific channel
    - Copy the webhook URL - it should look like `https://discord.com/api/webhooks/...`
 4. Add the webhook URL as a repository secret:
    - Go to your GitHub repository Settings
@@ -18,7 +18,6 @@ Automated tracker for new studies posted on the Atlas of Psychedelic Research.
    - Click "New repository secret"
    - Name: `DISCORD_WEBHOOK_URL`
    - Value: Paste the webhook URL you copied
-   - Click "Add secret"
 
 ## Local Development
 
