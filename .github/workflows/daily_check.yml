@@ -8,6 +8,8 @@ on:
 jobs:
   check-studies:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Add explicit permission to write to repo
     
     steps:
     - uses: actions/checkout@v2
@@ -31,8 +33,10 @@ jobs:
       
     - name: Commit and push if changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         git add studies.db
-        git commit -m "Update studies database" || exit 0
+        git diff --quiet && git diff --staged --quiet || git commit -m "Update studies database"
         git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
