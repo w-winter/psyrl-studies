@@ -4,13 +4,12 @@ Automated tracker for new IRL psychedelic studies posted on the Atlas of Psyched
 
 ## Setup
 
-1. Create a new GitHub repository and clone it
-2. Copy these files into the repository
+1. Clone this repository
+2. If you want an initial set of notifications covering all extant studies in the Atlas, run `git rm studies.db` and commit the change.
 3. Set up the Discord webhook:
-   - Create a channel named `#psyrl-studies` in your Discord server
+   - Create the channel within your Discord server where you want to receive the notifications
    - Go to Server Settings > Integrations > Create Webhook
-   - Name it "PsyRL Studies Bot"
-   - Set the channel to `#psyrl-studies` - the webhook must post to this specific channel
+   - Select the name of that specific channel (the webhook must post to this specific channel)
    - Copy the webhook URL - it should look like `https://discord.com/api/webhooks/...`
 4. Add the webhook URL as a repository secret:
    - Go to your GitHub repository Settings
@@ -38,17 +37,8 @@ python src/main.py
 
 ## GitHub Actions
 
-The script runs automatically every day at midnight UTC via GitHub Actions. You can also trigger it manually from the Actions tab in your repository.
+The script runs automatically every day at 4 minutes and 20 seconds after midnight UTC via GitHub Actions.  You can also trigger it manually from the Actions tab in your repository.
 
 ## Database
 
 The SQLite database (`studies.db`) is committed to the repository and updated automatically when new studies are found.
-
-## Verification
-
-Before leaving the setup running, verify that:
-1. A channel named exactly `#psyrl-studies` exists in your Discord server
-2. The webhook is configured to post to `#psyrl-studies` (check Server Settings > Integrations)
-3. The test run (triggered manually from GitHub Actions) successfully posts to `#psyrl-studies`
-
-If messages appear in the wrong channel, delete the webhook and recreate it with the correct channel selected.
